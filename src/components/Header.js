@@ -21,13 +21,13 @@ const Header = () => {
 
   return (
     <div className="header">
-      <Link to="/about" className="header-about">
+      <Link to="/shopping_cart/about" className="header-about">
         About
       </Link>
-      <Link to="/" className="header-title">
+      <Link to="/shopping_cart" className="header-title">
         Shopping Cart
       </Link>
-      <Link to="/cart" className="cart">
+      <Link to="/shopping_cart/cart" className="cart">
         <Cart className="cart-icons" color="rgb(233, 80, 34)" size={35} />
         <span className="number-item">{cart_number}</span>
         <p className="tongtien-header">Tổng: {formatter.format(cost)}</p>
