@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Trash } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
-import { removeItem } from "../../features/cart/cartSlice";
+import { addItem, removeItem, subItem } from "../../features/cart/cartSlice";
 
 var formatter = new Intl.NumberFormat("vi-VI", {
   style: "currency",
@@ -10,14 +10,33 @@ var formatter = new Intl.NumberFormat("vi-VI", {
 
 const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
-  // eslint-disable-next-line
   const [quantity, setQuantity] = useState(cartItem.quantity);
   return (
     <div className="cart-item">
       <img src={cartItem.img} alt={cartItem.name} />
-      <p>{cartItem.name}</p>
-      <p>{cartItem.quantity}</p>
-      <p>{formatter.format(cartItem.totalPrice)}</p>
+      <p className="cart-item-name">{cartItem.name}</p>
+      <span
+        className="btn-sub"
+        onClick={() => {
+          if (quantity > 1) {
+            dispatch(subItem({ cartItem, quantity }));
+            setQuantity(quantity - 1);
+          }
+        }}
+      >
+        –
+      </span>
+      <p className="cart-item-quantity">{cartItem.quantity}</p>
+      <span
+        className="btn-add"
+        onClick={() => {
+          dispatch(addItem({ cartItem, quantity }));
+          setQuantity(quantity + 1);
+        }}
+      >
+        +
+      </span>
+      <p className="cart-item-price">{formatter.format(cartItem.totalPrice)}</p>
       <Trash
         className="trash-icon"
         color="red"

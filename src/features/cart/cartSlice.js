@@ -27,12 +27,31 @@ export const slice = createSlice({
         img: action.payload.product.img,
         name: action.payload.product.name,
         quantity: action.payload.quantity,
+        price: action.payload.product.price,
         totalPrice: action.payload.quantity * action.payload.product.price,
       });
       alert("Đã thêm vào giỏ hàng");
     },
     removeItem: (state, action) => {
-        state.cartItems = state.cartItems.filter(item => item.product_id !== action.payload.cartItem.product_id)
+      state.cartItems = state.cartItems.filter(
+        (item) => item.product_id !== action.payload.cartItem.product_id
+      );
+    },
+    addItem: (state, action) => {
+      state.cartItems.forEach((item) => {
+        if (item.product_id === action.payload.cartItem.product_id) {
+          item.quantity += 1;
+          item.totalPrice += item.price;
+        }
+      });
+    },
+    subItem: (state, action) => {
+      state.cartItems.forEach((item) => {
+        if (item.product_id === action.payload.cartItem.product_id) {
+          item.quantity -= 1;
+          item.totalPrice -= item.price;
+        }
+      });
     }
   },
 });
@@ -41,5 +60,7 @@ export const getCartItems = (state) => state.cart.cartItems;
 
 export const { addItemsToCart } = slice.actions;
 export const { removeItem } = slice.actions;
+export const { addItem } = slice.actions;
+export const { subItem } = slice.actions;
 
 export default slice.reducer;

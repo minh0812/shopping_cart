@@ -15,9 +15,9 @@ const QuatityButton = (props) => {
   return (
     <div className="product-number">
       <p>Số lượng:</p>
-      <p className="sum" onClick={addQuantity}>+</p>
-      <p>{props.quantity}</p>
       <p className="sub" onClick={subQuantity}>–</p>
+      <p>{props.quantity}</p>
+      <p className="sum" onClick={addQuantity}>+</p>
     </div>
   );
 };
