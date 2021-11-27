@@ -36,7 +36,7 @@ const About = () => {
         </div>
         <div className="member">
           <img
-            src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t1.6435-9/106173335_155429899378946_3166045275740133710_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=aJRwY6CviVUAX8yFxs9&tn=zeJFYff-9wh1FOmN&_nc_ht=scontent.fsgn5-10.fna&oh=b886a454eb7b72a63f87dc6a108f59e5&oe=61C4C9F1"
+            src="https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/261778744_416047563317177_7359163606469234004_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=ffImdkSyQYwAX-hXPQM&_nc_ht=scontent.fsgn5-11.fna&oh=233613ed7a7becaa48035cb3cf961c00&oe=61A7136E"
             alt="Huynh Thanh Ngan"
           />
           <p>
