@@ -52,6 +52,9 @@ export const slice = createSlice({
           item.totalPrice -= item.price;
         }
       });
+    },
+    clear: (state) => {
+      state.cartItems = []
     }
   },
 });
@@ -62,5 +65,6 @@ export const { addItemsToCart } = slice.actions;
 export const { removeItem } = slice.actions;
 export const { addItem } = slice.actions;
 export const { subItem } = slice.actions;
+export const { clear } = slice.actions;
 
 export default slice.reducer;

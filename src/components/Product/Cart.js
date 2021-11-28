@@ -1,6 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { getCartItems } from "../../features/cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { clear, getCartItems } from "../../features/cart/cartSlice";
 import CartItem from "./CartItem";
 
 var formatter = new Intl.NumberFormat("vi-VI", {
@@ -10,6 +10,7 @@ var formatter = new Intl.NumberFormat("vi-VI", {
 
 const Cart = () => {
   const cartItems = useSelector(getCartItems);
+  const dispatch = useDispatch()
   let cost = 0;
   cartItems.map((cartItem) => (cost += cartItem.totalPrice));
 
@@ -24,7 +25,15 @@ const Cart = () => {
         <CartItem cartItem={cartItem} key={cartItem.id} />
       ))}
       <p className="cart-item-totalPrice">Tổng: {formatter.format(cost)}</p>
-      <button className="btn-checkout">Thanh Toán</button>
+      <button
+        className="btn-checkout"
+        onClick={() => {
+          alert("Cảm ơn bạn đã mua hàng !!!");
+          dispatch(clear())
+        }}
+      >
+        Thanh Toán
+      </button>
     </div>
   );
 };
